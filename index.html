@@ -37,6 +37,8 @@
 				<section data-state="bluesy">
 					<h1 style="font-size: 3.2em; ">Meet the Modernizr Module</h1><br><br>
 					<h3>DrupalCon Portland 2013</h3>
+          <br>
+          <p>Chris Ruppel <a href="http://twitter.com/rupl">@rupl</a></p>
 					<script>
 						// Delicously hacky. Look away.
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
@@ -123,6 +125,29 @@
             <br>
             <p class="fragment"><b>Code:</b> <a href="http://www.modernizr.com">http://www.modernizr.com</a></p>
           </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>When to use a test?</h2>
+            <br>
+            <p><a href="http://caniuse.com/">Can I use</a> stays current on browser support</p>
+            <br>
+            <p class="fragment"><a href="http://html5please.com/">HTML5 Please</a> has polyfills and some loose recommendations.</p>
+          </section>
+          <section>
+            <h2>Don't always use Modernizr</h2>
+            <br>
+            <ul class="xs">
+              <li class="fragment">border-radius has a natural fallback: 0px</li>
+              <li class="fragment">gradients have natural single-color fallbacks</li>
+            </ul>
+            <br><br>
+            <ul class="checks">
+              <li class="fragment">Location-based apps will always need Geolocation</li>
+              <li class="fragment">Inline SVG looks awesome on hi-rez displays and<br>&nbsp; &nbsp; incurs no download penalty</li>
+            </ul>
+          </section>
           <section>
             <br>
             <h2>When should you test?</h2>
@@ -136,6 +161,7 @@
             <p class="fragment">If you need something cool and the<br> UI breaks without it, test for it.</p>
           </section>
         </section>
+
 
         <section>
           <h2>Conditional loading</h2>
@@ -268,30 +294,6 @@ modernizr[Modernizr.cssfilters][yep][] = css/super-fancy.css
               <li><a href="http://drupal.org/node/1913744">Installing Modernizr module</a></li>
               <li><a href="http://drupal.org/node/1913748">Create custom builds using Test API</a></li>
               <li><a href="http://drupal.org/node/1913830">Modernizr.load() basics</a></li>
-            </ul>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h2>When to use a test?</h2>
-            <br>
-            <p><a href="http://caniuse.com/">Can I use</a> stays current on browser support</p>
-            <br>
-            <p class="fragment"><a href="http://html5please.com/">HTML5 Please</a> has polyfills and some loose recommendations.</p>
-          </section>
-          <section>
-            <h2>Don't always use Modernizr</h2>
-            <p>Only use it for stuff that's vital</p>
-            <br>
-            <ul class="xs">
-              <li>border-radius has a natural fallback: 0px</li>
-              <li>gradients have natural single-color fallbacks</li>
-            </ul>
-            <br><br>
-            <ul class="checks fragment">
-              <li>Location-based apps will always need Geolocation</li>
-              <li>Inline SVG looks awesome on hi-rez displays and<br>&nbsp; &nbsp; incurs no download penalty</li>
             </ul>
           </section>
         </section>
