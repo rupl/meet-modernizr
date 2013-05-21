@@ -1,41 +1,42 @@
-<!doctype html>  
+<!doctype html>
 <html lang="en">
-	
+
 	<head>
 		<meta charset="utf-8">
-		
-		<title>Advanced Frontend Performance - BADCamp 2012</title>
 
-		<meta name="description" content="Advanced Frontend Performance">
+		<title>Meet the Modernizr Module</title>
+		<meta name="description" content="Meet the Modernizr module">
 		<meta name="author" content="Chris Ruppel">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-		
+
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-		
+
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/print.css" type="text/css" media="print">
 
-		<link rel="stylesheet" href="lib/github.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="css/prism.css">
+
 		<link rel="stylesheet" href="lib/carousel.css">
 	</head>
-	
+
 	<body>
-		
+
 		<div class="reveal">
 
 			<!-- Used to fade in a background when a specific slide state is reached -->
 			<div class="state-background"></div>
-			
+
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section data-state="bluesy">
-					<h1 style="font-size: 3.2em; ">Advanced Frontend Performance</h1><br><br>
-					<h3>(for Drupal)</h3>
+					<h1 style="font-size: 3.2em; ">Meet the Modernizr Module</h1><br><br>
+					<h3>DrupalCon Portland 2013</h3>
 					<script>
 						// Delicously hacky. Look away.
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
@@ -61,238 +62,85 @@
               <li><a href="http://groups.drupal.org/html5/drupal-8">D8 HTML5 Initative</a>
               <li><a href="http://groups.drupal.org/mobile/drupal-8">D8 Mobile Initiative</a>
               <li><a href="http://drupal.org/community-initiatives/drupalorg/drupal7">Drupal.org D7 upgrade</a>
-              <li><a href="http://drushmake.me">http://drushmake.me</a>
             </ul>
           </section>
         </section>
 
         <section>
+          <h2>Lessons from TV</h2>
           <section>
-            <h2>What is frontend performance about?</h2>
             <br><br>
-            <p class="fragment">Users want performance over cool effects.</p>
-            <br><br>
-            <p class="fragment example">(Even when they don't realize it.)</p>
-          </section>
-          <section data-state="alert">
-            <br><br>
-            <h3>Mobile devices suffer even worse</h3>
-            <br>
-            <img src="img/loading.png" alt="" style="border: 0; background: transparent; box-shadow: none; ">
-          </section>
-          <section>
-            <h2>Topics covered</h2>
-            <br>
-            <p class="fragment"><b>Frontend development:</b> How can I build/debug faster?</p>
-            <br>
-            <p class="fragment"><b>Web Performance:</b> How do I make pages load faster?</p>
-            <br>
-            <p class="fragment"><b>Drupal-specific tools:</b> It is DrupalCamp after all..</p>
-          </section>
-        </section>
-
-				<section data-state="blackout">
-				  <br>
-					<h2>Frontend development</h2>
-					<br>
-					<h3>How can I build/debug faster?</h3>
-				</section>
-
-				<section>
-				  <section>
-  					<h2>Browser Development Tools</h2><br>
-            <h3>(devtools)</h3>
-					</section>
-          <section>
-            <h3>History</h3>
-            <p class="fragment">In the early days you downloaded extensions</p>
-            <p class="fragment">Now it's included and browsers share features.</p>
-            <br>
-            <p class="fragment">Why? <b>They all want the Open Web to win.</b></p>
-          </section>
-          <section>
-            <h3>Browser Makers</h3>
-            <p class="fragment">want to hear from YOU</p><br>
-            <ul class="fragment">
-              <li><a href="https://twitter.com/chromiumdev">@ChromiumDev</a></li>
-              <li><a href="https://twitter.com/ODevRel">@ODevRel</a></li>
-              <li><a href="https://twitter.com/mozhacks">@mozhacks</a></li>
-              <li><a href="https://twitter.com/IE">@IE</a></li>
-              <li><a href="https://twitter.com/lolno">@Apple</a></li>
-            </ul>
-          </section>
-				</section>
-
-        <section>
-          <section>
-            <h2>Chrome devtools protips</h2>
-            <br><br>
-            <p class="fragment example">(Similar features available in all browsers)</p>
-          </section>
-          <section>
-            <h3>Easily check the media query that supplies each style</h3>
-            <p><img src="img/devtools-mq-styles.png" alt="Media queries are displayed within the 'Styles' section of the Chrome element inspector"></p>
-          </section>
-          <section>
-            <h3>Spoof user-agent and dimensions</h3>
-            <p><img src="img/devtools-ua-screensize.png" alt="Browsers can spoof their user-agent string and screen dimensions. Settings are under 'User-agent' tab."></p>
-          </section>
-          <section>
-            <h3>Disable all caching</h3>
-            <p>(while the devtools are open)</p>
-            <p><img src="img/devtools-disable-cache.png" alt="Chrome can disable all caching while its devtools are open. Settings are under 'General' tab."></p>
-            <p class="fragment">Great for testing network waterfalls!</p>
-          </section>
-          <section>
-            <h3>Network waterfalls</h3>
-            <p>The first step to debug load-time issues</p>
-          </section>
-          <section data-state="big-img">
-            <p>
-              <img src="img/devtools-waterfall-1.png" alt="Chrome's network waterfall tools." style="width: 1149px; height: 593px; "><br>
-              <caption>Waterfalls show the sequence and timing of your browser's network activity as it assembles a web page.</caption>
-            </p>
-          </section>
-          <section data-state="big-img">
-            <p>
-              <img src="img/devtools-waterfall-2.png" alt="Chrome's network waterfall tools: total number of requests" style="width: 1149px; height: 593px; "><br>
-              <caption>Total number of requests required to assemble web page.</caption>
-            </p>
-          </section>
-          <section data-state="big-img">
-            <p>
-              <img src="img/devtools-waterfall-3.png" alt="Chrome's network waterfall tools: total page weight." style="width: 1149px; height: 593px; "><br>
-              <caption>Total amount of data transferred to assemble web page (page weight).</caption>
-            </p>
-          </section>
-          <section data-state="big-img">
-            <p>
-              <img src="img/devtools-waterfall-4.png" alt="Chrome's network waterfall tools: total time required." style="width: 1149px; height: 593px; "><br>
-              <caption>Total amount of time required to assemble web page.</caption>
-            </p>
-          </section>
-          <section data-state="big-img">
-            <p>
-              <img src="img/devtools-waterfall-5.png" alt="Chrome's network waterfall tools: time to DOMContentLoaded." style="width: 1149px; height: 593px; "><br>
-              <caption>
-                Total amount of time before the DOM is ready.<br>
-                Users start to feel like the webpage has loaded.<br>
-                <small>jQuery does not execute until this event has occurred.</small>
-              </caption>
-            </p>
-          </section>
-          <section>
-            <h3>More info</h3>
-            <br>
-            <p>&hellip;about <a href="http://j.mp/browser-devtools-2012">Frontend tooling @ jQuery UK 2012</a></p>
-            <p>&hellip;about <a href="http://j.mp/waterfall-webperf">using waterfall charts to interpret webperf data</a></p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h2>Workflow tools</h2>
-          </section>
-          <section>
-            <h3>JavaScript debugging</h3>
-            <br>
-            <p><a href="http://www.jshint.com">JSHint</a> - a JavaScript Code Quality Tool</p>
-            <img class="fragment" src="img/jshint.png" alt="">
-            <br><br>
-            <p class="example fragment">(or jslint.com if you need more Crockford)</p>
-          </section>
-          <section>
-            <h3>Automation</h3>
-            <br>
-            <p><a href="http://gruntjs.com">grunt</a> - task-based command line<br> build tool for JavaScript</p>
-            <br>
-            <p class="fragment">Automates grunt work for you</p>
-            <br>
-            <ul class="fragment">
-              <li>Run JSHint on every file save</li>
-              <li>Minify files with UglifyJS</li>
-              <li>Concat files and create builds<br>of libraries or aggregates</li>
-              <li>Over 200 plugins with an<br>active community</li>
-            </ul>
-          </section>
-        </section>
-
-        <section data-state="blackout">
-				  <br>
-          <h2>Web Performance</h2>
-          <br>
-          <h3>How do I make pages load faster?</h3>
-        </section>
-
-        <section>
-          <section>
-            <h2>Your goal:</h2>
             <p class="fragment">Strive to deliver the <strong>best</strong> experience everywhere</p>
             <br>
             <p class="fragment">NOT the same experience. <span class="fragment">The best experience.</span></p>
             <br>
             <p class="fragment">Further reading:<br>
+              <a href="http://www.slideshare.net/nzakas/progressive-enhancement-20-conference-agnostic">Progressive Enhancement 2.0</a>
               <a href="http://paulirish.com/2011/tiered-adaptive-front-end-experiences/">Tiered Adaptive Frontend Experiences (TAFEE)</a>
               <a href="http://alexsexton.com/talks/modernizr-3-workflow/">Modernizr 3 workflow</a>
             </p>
           </section>
-          <section data-state="alert">
-            <h2>Warning:</h2>
+          <section>
             <br>
-            <h3>Not everything is universal</h3>
+            <h4>tiered, adaptive front-end experiences</h4>
+            <br>
+            <p>Customize the experience to the<br> unique capabilities of each browser.<br><br>Prioritize <b>reliable, fast UX</b> over consistency.</p>
+          </section>
+          <section>
+            <p>Old browsers are black/white TVs, new browsers are HD</p>
+            <img class="fragment bare" src="img/tv-2.png" style="width: 70%; height: auto;">
+          </section>
+          <section>
+            <img class="bare" src="img/tv-5.png" style="width: 80%; height: auto;">
+          </section>
+          <section>
+            <img class="bare" src="img/tv-6.png" style="width: 80%; height: auto;">
+          </section>
+        </section>
+
+        <section>
+          <section data-state="alert">
+            <br>
+            <h2>How can we solve...</h2>
+            <ul>
+              <li class="fragment">Device diversity</li>
+              <li class="fragment">Fragmentation between versions</li>
+              <li class="fragment">Fragmentation between devices</li>
+              <li class="fragment">Backward compatibility</li>
+              <li class="fragment">Future friendliness</li>
+            </ul>
           </section>
           <section data-state="alert">
             <br><br><br>
-            <p>Applying optimization where none is needed can actually <b>slow your site down</b> in some cases</p>
+            <p>
+              user-agent sniffing is error-prone;<br>
+              unable to scale as more devices are created
+            </p>
           </section>
           <section data-state="soothe">
             <br><br><br>
-            <p>
-              Act on problems that you discover on<br>
-              <b>each site that you test</b><br>
-              not according to <i>"best practices"</i>
-            </p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h2>Having said that&hellip;</h2>
+            <p>Detect individual features on<br> each browser using Javascript</p>
+            <br>
+            <p class="fragment"><b>Code:</b> <a href="http://www.modernizr.com">http://www.modernizr.com</a></p>
           </section>
           <section>
-            <h2>Universal stuff</h2>
             <br>
-            <ul class="fragment checks">
-              <li>Reduce HTTP requests
-              <li>Minify/concatenate CSS and JS
-              <li>Combine images into sprites
-              <li>Move scripts to the bottom
-            </ul>
-            <br><br><br>
-            <p class="fragment">The real fun starts once you've got these under control.</p>
+            <h2>When should you test?</h2>
+            <p class="fragment">If you need geolocation, test for it.</p>
+            <p class="fragment">If you need CSS transitions, test for them.</p>
+            <p class="fragment">If you need HTML5 audio or video, test for them.</p>
+            <p class="fragment">If you need inline SVG, test for it.</p>
+            <p class="fragment">If you need web sockets, test for it.</p>
+            <p class="fragment">If you need data URIs, test for them.</p>
+            <br>
+            <p class="fragment">If you need something cool and the<br> UI breaks without it, test for it.</p>
           </section>
-        </section>
-
-        <section>
-          <h2>JavaScript Tools</h2>
-          <br><br><br>
-          <div class="fragment">
-            <p><code>♥.¸¸.•°*☆ (づ◕‿◕｡)づ &lt;(^_^&lt;)=- ☆*°•.¸¸.♥</code></p>
-            <br>
-            <p><small>&nbsp; JS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; me</small></p>
-          </div>
         </section>
 
         <section>
           <h2>Conditional loading</h2>
           <section>
-            <br>
-            <h3 class="fragment">before we get crackin'</h3>
-            <br><br>
-            <p class="fragment">let's talk about <b><i>conditional loading</i></b></p>
-          </section>
-          <section>
-            <p>Load things based on tests</p>
+            <p class="fragment">Load things based on tests</p>
             <br><br>
             <ul class="fragment checks">
               <li>Browser properties
@@ -303,318 +151,205 @@
           <section>
             <br>
             <br>
-            <p>Making these decisions in the browser is the core mechanism for tiered experiences.</p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h1>Modernizr</h1>
-          </section>
-          <section data-state="alert">
-            <br><br>
-            <p>
-              <i>Problem:</i> user-agent sniffing is error-prone;<br>
-              unable to scale as more devices are created
-            </p>
-          </section>
-          <section data-state="soothe">
-            <br><br>
-            <p><i>Solution:</i> Detect individual features on each browser</p>
-            <br>
-            <p class="fragment">
-              <b>Bonus:</b> includes a conditional loader called yepnope.js
-            </p>
-            <br>
-            <p class="fragment"><b>Code:</b> <a href="http://www.modernizr.com">http://www.modernizr.com</a></p>
-          </section>
-          <section>
-            <p class="fragment">If you need media queries, test for them.</p>
-            <p class="fragment">If you need CSS transitions, test for them.</p>
-            <p class="fragment">If you need HTML5 audio or video, test for them.</p>
-            <p class="fragment">If you need inline SVG, test for it.</p>
-            <p class="fragment">If you need web sockets, test for it.</p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h3>SouthStreet</h3>
-            <p>by Filament Group</p>
-          </section>
-          <section>
-            <br><br>
-            <h1>eCSSential</h3>
-          </section>
-          <section data-state="alert">
-            <br><br>
-            <p><i>Problem:</i><br></p>
-            <p>CSS is loaded when it is not needed.</p><br><br>
-            <p class="fragment">Sometimes it will never be used.<br> It's just dead weight.</p>
-            </p>
-          </section>
-          <section>
-            <br><br>
-            <p class="example">
-              <i>Example:</i> mobile phone downloading CSS with<br>
-              <code>@media (min-width: 1400px)</code><br>
-              <span class="fragment">then it downloads your big background images</span>
-            </p>
-            <br><br>
-            <small class="fragment">Data: <a href="http://scottjehl.github.com/CSS-Download-Tests/">http://scottjehl.github.com/CSS-Download-Tests/</a></small>
-          </section>
-          <section data-state="soothe">
-            <br><br>
-            <p><i>Solution:</i></p>
-            <p>
-              <b>Directly load</b> CSS that <i>will</i> be used.<br>
-              <b>Lazy-load</b> CSS that <i>might</i> be used.<br>
-              <b>Ignore</b> CSS that <i>cannot</i> be used.
-            </p>
-            <br><br>
-            <p class="fragment"><b>Code:</b> <a href="https://github.com/scottjehl/eCSSential">https://github.com/scottjehl/eCSSential</a></p>
-          </section>
-          <section>
-            <h1>Picturefill</h1>
-          </section>
-          <section data-state="alert">
-            <br><br>
-            <p><i>Problem:</i> we need different images for different device contexts. Affects usability and page weight.</p>
-          </section>
-          <section data-state="soothe">
-            <br><br>
-            <p>Picturefill was developed to explore <b>responsive images</b> before a native browser implementation emerges.</p>
-            <br><br>
-            <p class="fragment"><b>Code:</b> <a href="https://github.com/scottjehl/picturefill/">https://github.com/scottjehl/picturefill/</a></p>
+            <p>Making these decisions <i><b>in the browser</b></i> is the<br> core mechanism for tiered experiences.</p>
           </section>
         </section>
 
         <section>
           <section>
             <br>
-            <h2>Conditional content</h2>
+            <h2>Modernizr.load()</h2>
+            <br>
+            <pre class="fragment"><code class="language-javascript">
+    Modernizr.load({
+      test: Modernizr.geolocation,
+      nope: '/sites/all/libraries/geolocation/geo.js',
+      callback: function(){ geo.init(); }
+    });
+            </code></pre>
           </section>
           <section>
-            <h3>Anchor-include pattern</h3>
-            <p>Conditionally load <i>content</i>,<br> <small>provided it exists at its own self-contained URI</small></p>
-            <p class="fragment"><img src="img/anchor-include.png" alt="" class="bare"></p>
+            <h2>Progressive loading</h2>
             <br>
-            <p class="fragment">Code: <a href="https://gist.github.com/983328">https://gist.github.com/983328</a>
-          </section>
-          <section>
-            <h2>Third-party libraries</h2>
-            <p>Consider conditional loading for optional widgets</p>
+            <p class="fragment">Modernizr can be used the other way around too.<br> Use it to load stuff <em>only when needed</em>.</p>
             <br>
-            <p class="fragment"><i>Examples:</i> Social widgets, sharing tools</p>
+            <pre class="fragment"><code class="language-javascript">
+          Modernizr.load({
+            test: Modernizr.mq('(min-width: 42em)'),
+             yep: '/sites/all/themes/example/xl.css'
+          });
+            </code></pre>
             <br>
-            <p class="fragment"><a href="http://alexsexton.com/blog/2013/03/deploying-javascript-applications/">Examples from Alex Sexton, Engineer at Bazaarvoice</a></p>
-          </section>
-          <section>
-            <img src="img/delaypackage.gif" alt="Animated screenshot of deferred script downloads. The script doesn't download until the user's mouse gets within 200px of the Review button.">
-            <br>
-            <small>Source: http://alexsexton.com/blog/2013/03/deploying-javascript-applications/</small>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <br>
-            <h2>Predict user actions</h2>
-          </section>
-          <section>
-            <br>
-            <p>You can't change the speed of the network.</p>
-            <br>
-            <p class="fragment">You might be able to predict user actions</p>
-            <br>
-            <p class="fragment">Preempting the user makes things <b style="font-size: 125%;">feel instant</b></p>
-          </section>
-          <section>
-            <h2>DNS Prefetching</h2>
-            <p class="fragment">Allows you to do DNS lookups in the background</p>
-            <br>
-            <p class="fragment">Then the actual requests for assets are much faster</p>
-            <br>
-            <small class="fragment"><code>&lt;link rel="prefetch" href="http://example.com"></code></small>
-            <br><br>
-            <p class="fragment"><a href="http://www.w3.org/html/wg/drafts/html/master/links.html#link-type-prefetch">HTML spec</a></p>
-          </section>
-          <section>
-            <h2>Prerender in Chrome</h2>
-            <p class="fragment">Chrome takes prefetching to its extreme</p>
-            <p class="fragment">Tested extensively by users of Google Instant</p>
-            <p><code><link rel="prerender" href="http://example.com/faq"></code></p>
-            <br><br>
-            <p class="fragment">
-              More info:<br>
-              <a href="http://fourkitchens.com/blog/2013/03/20/prerender-chrome-instant-page-loads">Prerender in Chrome for instant page loads</a><br>
-              <a href="https://developers.google.com/chrome/whitepapers/prerender">Web Developer's Guide to Prerendering in Chrome</a>
+            <p class="fragment"><a href="http://fourkitchens.com/blog/2013/04/24/one-less-jpg">One Less JPG</a></p>
           </section>
         </section>
 
         <section>
           <section data-state="blackout">
-            <h1>Testing</h1>
-            <img class="fragment" src="img/Y-U-SO-SLOW.png" alt="WEB PAGES: Y U SO SLOW??" style="width: 600px; height: 450px; ">
+            <h2>Modernizr module</h2>
+            <br><br>
+            <p>How does it help me build tiered experiences?</p>
+          </section>
+          <section>
+            <br>
+            <h2>Drupal APIs</h2>
+            <br>
+            <p class="fragment"><i>Test API:</i> allows modules/themes to declare tests</p>
+            <br>
+            <p class="fragment"><i>Load API:</i> allows modules/themes to use <code>Modernizr.load()</code></p>
+            <br>
+          </section>
+          <section>
+            <h2>Test API</h2>
+            <br>
+            <p class="fragment">Modules use a hook:</p>
+            <pre class="fragment"><code class="language-javascript">              function MYMODULE_modernizr_info() {
+                $tests[] = 'geolocation';
+                return $tests;
+              }</code></pre>
+            <br>
+            <p class="fragment">Themes use the .info file:</p>
+            <pre class="fragment"><code class="language-javascript">              modernizr[tests][] = geolocation</code></pre>
+          </section>
+          <section>
+            <h2>Rebuild Modernizr</h2>
+            <img class="fragment bare" src="img/modernizr-config.png">
+          </section>
+          <section>
+            <h2>Load API: Modules</h2>
+            <br>
+            <p class="fragment">Modules use another hook:</p>
+            <pre class="fragment" style="width: 120%; font-size: .6em;"><code class="language-javascript">
+function MYMODULE_modernizr_load() {
+  $load[] = array(
+    'test' => 'Modernizr.geolocation',
+    'nope' => array('/' . drupal_get_path('module','geolocation') . '/js/geo.js'),
+    'callback' => 'function(){ geo.init(); }',
+  );
+  return $load;
+}
+</code></pre>
+          </section>
+          <section>
+            <br>
+            <p>...which turns into:</p>
+            <pre style="width: 100%; left: 0;"><code class="language-javascript">
+    Modernizr.load({
+      test: Modernizr.geolocation,
+      nope: '/sites/all/modules/geolocation/js/geo.js',
+      callback: function(){ geo.init(); }
+    });
+            </code></pre>
+          </section>
+          <section>
+            <h2>Load API: Themes</h2>
+            <p class="fragment"><code>mytheme.info</code> file:</p>
+            <pre class="fragment" style="width: 110%;"><code class="language-javascript">
+modernizr[Modernizr.cssfilters][yep][] = css/super-fancy.css
+            </code></pre>
+          </section>
+          <section>
+            <p>...turns into:</p>
+            <pre class="fragment" style="width: 110%;"><code class="language-javascript">
+  Modernizr.load({
+    test: Modernizr.cssfilters,
+     yep: '/sites/all/themes/mytheme/css/super-fancy.css'
+  });
+            </code></pre>
+            <br>
+            <p class="fragment"><code>mytheme_modernizr_load_alter()</code><br> works the same as module hooks too.</p>
+          </section>
+          <section>
+            <h2>drupal.org docs</h2>
+            <br>
+            <ul>
+              <li><a href="http://drupal.org/project/modernizr">Modernizr module homepage</a></li>
+              <li><a href="http://drupal.org/node/1913726">Feature detection</a></li>
+              <li><a href="http://drupal.org/node/1913744">Installing Modernizr module</a></li>
+              <li><a href="http://drupal.org/node/1913748">Create custom builds using Test API</a></li>
+              <li><a href="http://drupal.org/node/1913830">Modernizr.load() basics</a></li>
+            </ul>
           </section>
         </section>
 
         <section>
           <section>
-            <h2>Web performance testing</h2>
+            <h2>When to use a test?</h2>
+            <br>
+            <p><a href="http://caniuse.com/">Can I use</a> stays current on browser support</p>
+            <br>
+            <p class="fragment"><a href="http://html5please.com/">HTML5 Please</a> has polyfills and some loose recommendations.</p>
           </section>
           <section>
-            <h2>YSlow</h2>
-            <p><a href="http://developer.yahoo.com/yslow/">http://developer.yahoo.com/yslow/</a></p>
+            <h2>Don't always use Modernizr</h2>
+            <p>Only use it for stuff that's vital</p>
             <br>
-            <div class="fragment">
-              <p>Grades your web pages and makes suggestions to improve your frontend performance</p>
-              <br>
-              <p>Available as a browser extension</p>
-              <br>
-              <small>Also available as a JS-based bookmarklet for use on mobile</small>
-            </div>
-          </section>
-          <section>
-            <h2>WebPageTest.org</h2>
-            <p><a href="http://www.webpagetest.org/">http://www.webpagetest.org/</a></p>
-            <br>
-            <p>It won't grade your site, but it gives you the raw data that you can get from a waterfall.</p>
-            <br>
-            <p class="fragment">
-              Run tests from many locations worldwide<br>
-              Many browsers (IE6+, FF, Chrome)
-            </p>
-          </section>
-          <section>
-            <p>What does it test?</p>
-            <br>
-            <ul class="fragment checks">
-              <li>Initial load-time
-              <li>Repeat load-times (caching)
-              <li>Waterfalls and connections
-              <li>Headers for every request
+            <ul class="xs">
+              <li>border-radius has a natural fallback: 0px</li>
+              <li>gradients have natural single-color fallbacks</li>
             </ul>
-          </section>
-          <section>
-            <h2>Akamai Blaze</h2>
-            <p><a href="http://mobitest.akamai.com/">http://mobitest.akamai.com/</a></p>
-            <br>
-            <p class="fragment">Mobile performance testing</p>
-            <br>
-            <ul class="fragment checks">
-              <li>Similar data as webpagetest.org
-              <li>Pick which device to test
-              <li>Number of repeat loads
-              <li>Location to test from
+            <br><br>
+            <ul class="checks fragment">
+              <li>Location-based apps will always need Geolocation</li>
+              <li>Inline SVG looks awesome on hi-rez displays and<br>&nbsp; &nbsp; incurs no download penalty</li>
             </ul>
-          </section>
-          <section>
-            <h2>Navigation Timing</h2>
-            <p>A JavaScript API that accurately measures page loads.</p>
-            <br>
-            <ul class="fragment">
-              <li><a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html">W3 Spec</a>
-              <li><a href="http://www.html5rocks.com/en/tutorials/webperformance/basics/">Intro / tutorial</a>
-            </ul>
-          </section>
-          <section>
-            <img class="bare" src="img/timing-overview.png" alt="" style="width: 1000px; ">
           </section>
         </section>
 
         <section>
-          <section>
-            <h2>JS Testing</h2>
+          <section data-state="blackout">
+            <h2>Pitching compatibility</h2>
+            <br>
+            <p><a href="http://www.confreaks.com/videos/2223-html5tx2013-browser-versions-are-dead">Browser versions are dead</a></p>
+            <br>
+            <p class="fragment">Why limit a site based on a stale browser version?</p>
+            <br>
+            <p class="fragment">Instead, we should be asking<br> <i>what features are needed to make this site?&nbsp;</i></p>
           </section>
           <section>
-            <h3>JSperf</h3>
+            <h2>Use the data we have</h2>
             <br>
-            <p>JavaScript performance playground</p>
+            <p class="fragment">Take the high-level requirements (both yours and the client's) and plug it into <a href="http://caniuse.com/">caniuse</a>, and get a rough compatibility percentage</p>
             <br>
-            <ul class="fragment checks">
-              <li>Runs JS code and tests how many ops/sec
-              <li>Integration with BrowserScope
-              <li>Social integration; people can discuss issues
-            </ul>
-            <br><br><br>
-            <p class="fragment"><a href="http://jsperf.com/browse">Browse some example tests</a></p>
-          </section>
-        </section>
-
-        <section data-state="blackout">
-          <br>
-          <h2>Drupal Tools</h2>
-          <br>
-          <h3>What has Drupal solved?</h3>
-        </section>
-
-        <section>
-          <section>
-            <h1>Modernizr 7.x-3.x</h1>
-          </section>
-          <section data-state="alert">
-            <br><br>
-            <p><i>Problem:</i> sometimes it's hard to keep track of what Modernizr tests your Drupal site needs.</p>
+            <p class="fragment">Tell your client:<br> "Yes, IE8 will support 83% of the features."</p>
             <br>
-            <p class="fragment"><i>Another problem:</i> themes and modules need to consitionally load things based on said tests.</p>
-          </section>
-          <section data-state="soothe">
-            <br><br>
-            <p>Modernizr API<br> Available to all themes and modules.</p>
-            <ul class="fragment checks white">
-              <li>Drush commands
-              <li>Libraries API integration
-              <li>Modernizr.load() integration
-            </ul>
-            <br><br>
-            <p class="fragment"><b>Code:</b> <a href="http://drupal.org/project/modernizr">http://drupal.org/project/modernizr</a></p>
-            <br>
-            <p class="example"><small><i>Disclosure: I maintain this Drupal module.</i></small></p>
           </section>
           <section>
-            <h2>Inline one-use JS</h2>
-            <p class="fragment">Don't keep important JS in your theme.</p>
-            <p class="fragment">And don't load a tiny 10-line file</p>
-            <p class="fragment"><a href="http://fourkitchens.com/blog/2013/02/05/inlining-one-use-javascript">Inlining one-use JavaScript</a></p>
+            <h2>Modernizr v3</h2>
+            <br>
+            <p class="fragment">This type of project estimation is on the roadmap.<p>
+            <br>
+            <p class="fragment">Tests now include dependencies and links to caniuse.</p>
+            <br>
+            <p class="fragment">Systems like Drupal are poised to take<br> advantage of this data in an automated fashion.</p>
           </section>
           <section>
-            <h1>UglifyJS</h1>
-          </section>
-          <section data-state="alert">
-            <br><br>
-            <p><i>Problem:</i> most JS within Drupal core is not minified.</p>
-            <br>
-            <p class="fragment"><b>Read:</b> <a href="http://engineeredweb.com/blog/why-minify-javascript/">How does minifying JS help performance?</a></p>
-          </section>
-          <section data-state="soothe">
-            <br><br>
-            <p><i>Solution:</i> Minify files  on the fly to make them smaller and decrease download time.</p>
-            <br>
-            <p class="fragment"><b>Code:</b> <a href="http://drupal.org/project/uglifyjs">http://drupal.org/project/uglifyjs</a></p>
-            <br>
-            <p class="fragment">Further reading: <a href="http://fourkitchens.com/blog/2013/02/21/minified-javascript-fly">Minified JS on the Fly!</a>
-          </section>
-          <section>
-            <h1>Picturefill</h1>
-            <br>
-            <p class="fragment">(again)</p>
-          </section>
-          <section>
-            <br><br>
-            <p>D7 - Module available at <a href="http://drupal.org/project/resp_img">http://drupal.org/project/resp_img</a></p>
-            <br>
-            <p class="fragment">D8 - Core implementation has been committed!<br> <a href="http://drupal.org/node/1775530#comment-6684666">http://drupal.org/node/1775530</a></p>
-            <br>
-            <p class="fragment">Drupal 8 efforts have helped <a href="http://www.w3.org/community/respimg/2012/08/04/picture-in-drupal-8/">influence the formation of this web standard</a></p>
+            <pre style="font-size: .5em; width: 130%; left: -15%;"><code class="language-javascript">
+/*!
+{
+  "name": "CSS Animations",
+  "property": "cssanimations",
+  "caniuse": "css-animation",
+  "polyfills": ["transformie", "csssandpaper"],
+  "tags": ["css"],
+  "warnings": ["Android < 4 will pass this test, but can only animate a single property at a time"],
+  "notes": [{
+    "name" : "Article: 'Dispelling the Android CSS animation myths'",
+    "href": "http://goo.gl/CHVJm"
+  }]
+}
+!*/
+define(['Modernizr', 'testAllProps'], function( Modernizr, testAllProps ) {
+  Modernizr.addTest('cssanimations', testAllProps('animationName'));
+});
+</code></pre>
           </section>
           <section>
-            <h2>Navigation Timing</h2>
-            <p>Integrates navigation timing into any Drupal site.</p>
+            <h2>Move the web forward</h2>
             <br>
-            <p class="fragment">Needs a UI, but provides all the data you need</p>
+            <p>Nudging clients toward this outlook helps everyone.</p>
             <br>
-            <p class="fragment"><a href="http://drupal.org/project/navigation_timing">http://drupal.org/project/navigation_timing</a></p>
+            <p class="fragment">Especially you!</p>
           </section>
         </section>
 
@@ -628,15 +363,16 @@
           <p>chris &#x2740; fourkitchens.com</p>
         </section>
 
-        <!-- section data-state="bluesy">
+        <section data-state="bluesy">
           <h2>Rate this session!</h2>
+          <br>
           <p>
-            <a href="http://munich2012.drupal.org/program/sessions/high-performance-theming">Visit the session page</a>to leave feedback.<br>
+            <a href="http://portland2013.drupal.org/session/meet-modernizr-module">Visit the session page</a>to leave feedback.<br>
             <small>It means a lot to me ❤ Thanks!</small><br><br>
-            Short link: <a href="http://j.mp/dcmunich-hpt">http://j.mp/dcmunich-hpt</a><br><br>
-            Select <i>"Provide feedback on this session"</i>
+            Short link: <a href="http://j.mp/meet-modernizr">http://j.mp/meet-modernizr</a><br><br>
+            Select <i>"Evaluate This Session"</i>
           </p>
-        </section -->
+        </section>
 			</div>
 
 			<!-- The navigational controls UI -->
@@ -649,16 +385,16 @@
 
 			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
 			<div class="progress"><span></span></div>
-			
+
 		</div>
 
 		<!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
-		<script src="lib/highlight.js"></script>
+    <script src="js/prism.js"></script>
 		<script src="lib/classList.js"></script>
 		<script src="lib/carousel.js"></script>
-		
+
 		<script src="js/reveal.js"></script>
-		
+
 		<script>
 			// Parse the query string into a key/value object
 			var query = {};
