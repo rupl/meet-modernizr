@@ -1,1 +1,5 @@
-# This branch is for Github Pages only!
+# Meet the Modernizr module
+
+Presented at:
+
+* DrupalCon Portland
